@@ -5,6 +5,8 @@
 #include <cstdlib>
 #include <ncurses.h>
 #include <info/system_info.h>
+#include <sstream>
+#include <unistd.h>
 
 using namespace std;
 
@@ -23,6 +25,26 @@ void exit_if_user_presses_q() {
   }
 }
 
+int getLengthOfNum(int num) {
+  stringstream ss;
+  ss << num;
+  string numStr = ss.str();
+
+  return numStr.length();
+}
+
+string formatSecondsDDHHMMSS(int seconds) {
+  int hours = seconds / 3600;
+  int minutes = seconds / 60;
+  int remainingSeconds = seconds % 60;
+}
+
+string formatSecondsMSSCC(int seconds) {
+
+}
+
+
+
 
 /**
  * Entry point for the program.
@@ -40,6 +62,8 @@ int main() {
 
   int tick = 1;
 
+  int prevCPUTime = 0;
+
   while (true) {
     wclear(stdscr);
     int row, col;
@@ -48,25 +72,47 @@ int main() {
     SystemInfo sysInfo = get_system_info();
 
     // uptime
-    printw("BEHOLD! THE uptime: %f\n", sysInfo.uptime);
+    int seconds = sysInfo.uptime;
+    int hours = seconds / 3600;
+    int remainingSeconds = seconds % 3600;
+    int minutes = remainingSeconds / 60;
+    remainingSeconds = remainingSeconds % 60;
+    printw("BEHOLD! THE uptime: %02d:%02d:%02d\n", hours, minutes,
+      remainingSeconds);
 
     // load average
     printw("BEHOLD! THE load_average\n");
-    printw("1 min: %f 5 min: %f 15 min: %f\n", sysInfo.load_average.one_min,
+    printw("1 min: %1.2f 5 min: %1.2f 15 min: %1.2f\n", sysInfo.load_average.one_min,
       sysInfo.load_average.five_mins, sysInfo.load_average.fifteen_mins);
 
     std::vector<CpuInfo> cpus = sysInfo.cpus;
     int initialRows = 3; // uptime, load average info
-    int rowsCpuOccupies = cpus.size() + 3; // +3 for CPU totals and whitespace
+    int rowsCpuOccupies = cpus.size() + 1; // +3 for CPU totals and whitespace
     int rowsOtherStatsOccupy = 7; // totally hard coded, I hope I can count
     int totalRowsBeforeTable = initialRows + rowsCpuOccupies +
-      rowsOtherStatsOccupy + 1;
+      rowsOtherStatsOccupy + 2;
 
-    mvprintw(initialRows + 1, 0, "CPU 0:");
+    int currCPUTime = cpus.at(0).total_time();
 
-    // percent of time all processors in user mode, kernel mode, idling
+    if (prevCPUTime == 0) {
+      prevCPUTime = currCPUTime;
+    }
 
-    // percent of time each processor in user, kernel, idling
+    // percent of time processors in user mode, kernel mode, idling
+    for (int i = 0; i < cpus.size(); i++) {
+      int currRow = initialRows + 1 + i;
+      if (i == 0) {
+        mvprintw(currRow, 0, "CPUS:");
+      } else {
+        mvprintw(currRow, 0, "CPU%d:", i-1);
+      }
+      float percUserTime = (float)cpus.at(i).user_time * 100 / cpus.at(i).total_time();
+      mvprintw(currRow, 20 - 9, "%3.2f%% user", percUserTime);
+      float percSysTime = (float)cpus.at(i).system_time * 100 / cpus.at(i).total_time();
+      mvprintw(currRow, 40 - 11, "%3.2f%% system", percSysTime);
+      float percIdleTime = (float)cpus.at(i).idle_time * 100 / cpus.at(i).total_time();
+      mvprintw(currRow, 60 - 11, "%3.2f%% idle", percIdleTime);
+    }
 
     // num_processes
     mvprintw(initialRows + rowsCpuOccupies + 1, 0,
@@ -82,17 +128,16 @@ int main() {
 
     // amount of memory installed
     mvprintw(initialRows + rowsCpuOccupies + 4, 0,
-      "BEHOLD! THE installed memory: %u\n", sysInfo.memory_info.total_memory);
+      "BEHOLD! THE installed memory (KiB): %u\n", sysInfo.memory_info.total_memory);
 
     // currently in use
     mvprintw(initialRows + rowsCpuOccupies + 5, 0,
-      "BEHOLD! THE in-use memory: %u\n", sysInfo.memory_info.total_memory -
-      sysInfo.memory_info.free_memory - sysInfo.memory_info.buffers_memory -
-      sysInfo.memory_info.cached_memory);
+      "BEHOLD! THE in-use memory (KiB): %u\n", sysInfo.memory_info.total_memory -
+      sysInfo.memory_info.free_memory);
 
     // currently available
     mvprintw(initialRows + rowsCpuOccupies + 6, 0,
-      "BEHOLD! THE available memory: %u\n", sysInfo.memory_info.free_memory);
+      "BEHOLD! THE available memory (KiB): %u\n", sysInfo.memory_info.free_memory);
 
     // table with labeled columns:
     mvprintw(initialRows + rowsCpuOccupies + 7, 0, "BEHOLD! THE table\n");
@@ -118,6 +163,36 @@ int main() {
     // % of CPU currently being used,
     // total time spent being executed (HH:MM:SS),
     // cmdline that was executed
+    int displayNum = 10;
+    if (sysInfo.processes.size() < 10) {
+      displayNum = sysInfo.processes.size();
+    }
+    for (int i = 0; i < displayNum; i++) {
+      int currRow = totalRowsBeforeTable + 1 + i;
+      int pidLength = getLengthOfNum(sysInfo.processes.at(i).pid);
+      mvprintw(currRow, 5 - pidLength, "%d", sysInfo.processes.at(i).pid);
+
+      int rssLength = getLengthOfNum(sysInfo.processes.at(i).rss);
+      mvprintw(currRow, 15 - rssLength, "%d", sysInfo.processes.at(i).rss);
+
+      mvprintw(currRow, 24, "%c", sysInfo.processes.at(i).state);
+
+      int lastProcessor = sysInfo.processes.at(i).processor;
+      int processorTotalTime
+      mvprintw(currRow, 31, "%1.1f%%", sysInfo.processes.at(i).cpu_percent);
+
+      seconds = (sysInfo.processes.at(i).utime +
+        sysInfo.processes.at(i).stime) /
+        sysconf(_SC_CLK_TCK);
+      hours = seconds / 3600;
+      remainingSeconds = seconds % 3600;
+      minutes = remainingSeconds / 60;
+      remainingSeconds = remainingSeconds % 60;
+      mvprintw(currRow, 38, "%02d:%02d:%02d", hours, minutes, remainingSeconds);
+
+      mvprintw(currRow, 55 - cmdStr.length(),
+          sysInfo.processes.at(i).command_line.c_str());
+    }
 
 
     // Display the counter using printw (an ncurses function)
