@@ -1,2 +1,0 @@
-rootfs / rootfs rw 0 0
-devtmpfs / devtmpfs rw,relatime,size=4060052k,nr_inodes=1015013,mode=755 0 0

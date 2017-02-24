@@ -1,5 +1,0 @@
-enabled
-interpreter /usr/lib/binfmt-support/run-detectors
-flags: 
-offset 0
-magic 504b0304
