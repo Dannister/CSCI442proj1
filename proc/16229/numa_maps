@@ -1,0 +1,18 @@
+00400000 default file=/usr/bin/yes mapped=4 N0=4
+00605000 default file=/usr/bin/yes anon=1 dirty=1 N0=1
+00606000 default file=/usr/bin/yes anon=1 dirty=1 N0=1
+006cc000 default heap anon=2 dirty=2 N0=2
+7f21b29f0000 default file=/usr/lib/locale/locale-archive mapped=11 mapmax=24 N0=11
+7f21b2cb9000 default file=/lib/x86_64-linux-gnu/libc-2.19.so mapped=89 mapmax=89 N0=89
+7f21b2e74000 default file=/lib/x86_64-linux-gnu/libc-2.19.so
+7f21b3073000 default file=/lib/x86_64-linux-gnu/libc-2.19.so anon=4 dirty=4 N0=4
+7f21b3077000 default file=/lib/x86_64-linux-gnu/libc-2.19.so anon=2 dirty=2 N0=2
+7f21b3079000 default anon=3 dirty=3 N0=3
+7f21b307e000 default file=/lib/x86_64-linux-gnu/ld-2.19.so mapped=29 mapmax=72 N0=29
+7f21b3271000 default anon=3 dirty=3 N0=3
+7f21b329d000 default anon=3 dirty=3 N0=3
+7f21b32a0000 default file=/lib/x86_64-linux-gnu/ld-2.19.so anon=1 dirty=1 N0=1
+7f21b32a1000 default file=/lib/x86_64-linux-gnu/ld-2.19.so anon=1 dirty=1 N0=1
+7f21b32a2000 default anon=1 dirty=1 N0=1
+7ffda7463000 default stack anon=3 dirty=3 N0=3
+7ffda75a3000 default

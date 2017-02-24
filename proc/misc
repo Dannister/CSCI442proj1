@@ -1,0 +1,22 @@
+ 54 vboxnetctl
+ 55 vboxdrvu
+ 56 vboxdrv
+232 kvm
+130 watchdog
+ 57 mei
+ 58 network_throughput
+ 59 network_latency
+ 60 cpu_dma_latency
+227 mcelog
+236 device-mapper
+223 uinput
+  1 psaux
+200 tun
+237 loop-control
+228 hpet
+229 fuse
+ 61 ecryptfs
+231 snapshot
+184 microcode
+ 62 rfkill
+ 63 vga_arbiter

@@ -1,0 +1,30 @@
+00400000-004ef000 r-xp 00000000 08:01 24379460                           /bin/bash
+006ef000-006f0000 r--p 000ef000 08:01 24379460                           /bin/bash
+006f0000-006f9000 rw-p 000f0000 08:01 24379460                           /bin/bash
+006f9000-006ff000 rw-p 00000000 00:00 0 
+00a28000-00e4e000 rw-p 00000000 00:00 0                                  [heap]
+7f8c26ea6000-7f8c2716f000 r--p 00000000 08:01 10616972                   /usr/lib/locale/locale-archive
+7f8c2716f000-7f8c2732a000 r-xp 00000000 08:01 9044394                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f8c2732a000-7f8c27529000 ---p 001bb000 08:01 9044394                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f8c27529000-7f8c2752d000 r--p 001ba000 08:01 9044394                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f8c2752d000-7f8c2752f000 rw-p 001be000 08:01 9044394                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f8c2752f000-7f8c27534000 rw-p 00000000 00:00 0 
+7f8c27534000-7f8c27537000 r-xp 00000000 08:01 9044226                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f8c27537000-7f8c27736000 ---p 00003000 08:01 9044226                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f8c27736000-7f8c27737000 r--p 00002000 08:01 9044226                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f8c27737000-7f8c27738000 rw-p 00003000 08:01 9044226                    /lib/x86_64-linux-gnu/libdl-2.19.so
+7f8c27738000-7f8c2775d000 r-xp 00000000 08:01 9044088                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f8c2775d000-7f8c2795c000 ---p 00025000 08:01 9044088                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f8c2795c000-7f8c27960000 r--p 00024000 08:01 9044088                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f8c27960000-7f8c27961000 rw-p 00028000 08:01 9044088                    /lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f8c27961000-7f8c27984000 r-xp 00000000 08:01 9044348                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f8c27b1f000-7f8c27b54000 r--s 00000000 08:01 8398596                    /var/cache/nscd/passwd
+7f8c27b54000-7f8c27b57000 rw-p 00000000 00:00 0 
+7f8c27b7a000-7f8c27b81000 r--s 00000000 08:01 10630332                   /usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache
+7f8c27b81000-7f8c27b83000 rw-p 00000000 00:00 0 
+7f8c27b83000-7f8c27b84000 r--p 00022000 08:01 9044348                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f8c27b84000-7f8c27b85000 rw-p 00023000 08:01 9044348                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f8c27b85000-7f8c27b86000 rw-p 00000000 00:00 0 
+7fff904c9000-7fff904ea000 rw-p 00000000 00:00 0                          [stack]
+7fff9054d000-7fff9054f000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]

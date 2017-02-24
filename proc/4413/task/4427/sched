@@ -1,0 +1,49 @@
+alsa-source-ALC (4427, #threads: 4)
+-------------------------------------------------------------------
+se.exec_start                                :     267440131.031866
+se.vruntime                                  :             0.000000
+se.sum_exec_runtime                          :             1.345586
+se.statistics.wait_start                     :             0.000000
+se.statistics.sleep_start                    :     267435118.453247
+se.statistics.block_start                    :             0.000000
+se.statistics.sleep_max                      :             0.237269
+se.statistics.block_max                      :             0.002736
+se.statistics.exec_max                       :             0.111453
+se.statistics.slice_max                      :             0.000000
+se.statistics.wait_max                       :             0.000000
+se.statistics.wait_sum                       :             0.000000
+se.statistics.wait_count                     :                    5
+se.statistics.iowait_sum                     :             0.000000
+se.statistics.iowait_count                   :                    0
+se.nr_migrations                             :                    1
+se.statistics.nr_migrations_cold             :                    0
+se.statistics.nr_failed_migrations_affine    :                    0
+se.statistics.nr_failed_migrations_running   :                    0
+se.statistics.nr_failed_migrations_hot       :                    0
+se.statistics.nr_forced_migrations           :                    0
+se.statistics.nr_wakeups                     :                   22
+se.statistics.nr_wakeups_sync                :                    4
+se.statistics.nr_wakeups_migrate             :                    0
+se.statistics.nr_wakeups_local               :                   14
+se.statistics.nr_wakeups_remote              :                    8
+se.statistics.nr_wakeups_affine              :                    0
+se.statistics.nr_wakeups_affine_attempts     :                    1
+se.statistics.nr_wakeups_passive             :                    0
+se.statistics.nr_wakeups_idle                :                    0
+avg_atom                                     :             0.058503
+avg_per_cpu                                  :             1.345586
+nr_switches                                  :                   23
+nr_voluntary_switches                        :                   23
+nr_involuntary_switches                      :                    0
+se.load.weight                               :                11916
+se.avg.runnable_avg_sum                      :                23089
+se.avg.runnable_avg_period                   :                23348
+se.avg.load_avg_contrib                      :                11901
+se.avg.decay_count                           :            255046004
+policy                                       :                    2
+prio                                         :                   94
+clock-delta                                  :                   42
+mm->numa_scan_seq                            :                    0
+numa_migrations, 0
+numa_faults, 0, 0, 1, 0, -1
+numa_faults, 1, 0, 0, 0, -1

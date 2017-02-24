@@ -1,0 +1,85 @@
+device rootfs mounted on / with fstype rootfs
+device sysfs mounted on /sys with fstype sysfs
+device proc mounted on /proc with fstype proc
+device udev mounted on /dev with fstype devtmpfs
+device devpts mounted on /dev/pts with fstype devpts
+device tmpfs mounted on /run with fstype tmpfs
+device /dev/disk/by-uuid/b459beec-5607-4161-9288-d3cfade7a67c mounted on / with fstype ext4
+device none mounted on /sys/fs/cgroup with fstype tmpfs
+device none mounted on /sys/fs/fuse/connections with fstype fusectl
+device none mounted on /sys/kernel/debug with fstype debugfs
+device none mounted on /sys/kernel/security with fstype securityfs
+device none mounted on /run/lock with fstype tmpfs
+device none mounted on /run/shm with fstype tmpfs
+device none mounted on /run/user with fstype tmpfs
+device none mounted on /sys/fs/pstore with fstype pstore
+device binfmt_misc mounted on /proc/sys/fs/binfmt_misc with fstype binfmt_misc
+device rpc_pipefs mounted on /run/rpc_pipefs with fstype rpc_pipefs
+device systemd mounted on /sys/fs/cgroup/systemd with fstype cgroup
+device zs3-ct-01a-1:/export/fermat mounted on /u with fstype nfs4 statvers=1.1
+	opts:	rw,vers=4.0,rsize=32768,wsize=32768,namlen=255,acregmin=3,acregmax=60,acdirmin=30,acdirmax=60,hard,proto=tcp,port=0,timeo=600,retrans=2,sec=sys,clientaddr=138.67.186.230,local_lock=none
+	age:	361448
+	caps:	caps=0xffff,wtmult=512,dtsize=32768,bsize=0,namlen=255
+	nfsv4:	bm0=0xfdffbfff,bm1=0xf9be3e,bm2=0x0,acl=0x3,pnfs=not configured
+	sec:	flavor=1,pseudoflavor=1
+	events:	64893 4087439 11497 125677 18787 40351 4426227 1626470 7740 15213 664051 267806 30151 64511 86961 8579 191289 84089 0 778 421448 594 0 0 0 0 0 
+	bytes:	4514468362 3628784268 0 0 501556415 2578367405 141725 664051 
+	RPC iostats version: 1.0  p/v: 100003/4 (nfs)
+	xprt:	tcp 745 0 1 0 19 644860 644860 0 3296567 0 1024 422671 2651708
+	per-op statistics
+	        NULL: 0 0 0 0 0 0 0 0
+	        READ: 34726 34726 0 5723116 503655232 369 110221 111387
+	       WRITE: 170581 170581 0 2607324064 12170708 43212 1634122 1683493
+	      COMMIT: 6849 6849 0 1017220 410940 96 22472 22737
+	        OPEN: 44998 44998 0 11939160 16244824 1928 103812 106781
+	OPEN_CONFIRM: 11 11 0 1724 748 0 2 3
+	 OPEN_NOATTR: 0 0 0 0 0 0 0 0
+	OPEN_DOWNGRADE: 6 6 0 1084 792 0 1 2
+	       CLOSE: 40066 40066 0 6905284 5288712 9097 40300 50120
+	     SETATTR: 69190 69190 0 13247572 15353376 365 94260 96252
+	      FSINFO: 1 1 0 148 108 0 0 0
+	       RENEW: 0 0 0 0 0 0 0 0
+	 SETCLIENTID: 0 0 0 0 0 0 0 0
+	SETCLIENTID_CONFIRM: 0 0 0 0 0 0 0 0
+	        LOCK: 39 39 0 8672 2652 0 12 13
+	       LOCKT: 0 0 0 0 0 0 0 0
+	       LOCKU: 39 39 0 6956 2652 0 16 17
+	      ACCESS: 35965 35965 0 5620576 4459412 215 45917 46951
+	     GETATTR: 64894 64894 0 9632584 14219032 378 168282 170266
+	      LOOKUP: 47055 47055 0 8756228 4577060 597 65102 66738
+	 LOOKUP_ROOT: 0 0 0 0 0 0 0 0
+	      REMOVE: 25827 25827 0 4064296 1725884 130 254718 255244
+	      RENAME: 5336 5336 0 1258948 576288 32 23569 23703
+	        LINK: 80 80 0 18540 21632 0 81 83
+	     SYMLINK: 13 13 0 2692 3996 0 8 8
+	      CREATE: 901 901 0 173100 241868 3 630 655
+	    PATHCONF: 1 1 0 144 76 0 0 0
+	      STATFS: 54401 54401 0 8086216 6310516 258 128117 129339
+	    READLINK: 4 4 0 544 288 0 0 1
+	     READDIR: 2734 2734 0 471288 13820644 14 9958 10037
+	 SERVER_CAPS: 2 2 0 288 192 0 0 0
+	 DELEGRETURN: 35163 35163 0 5920940 4078792 13360 42520 57999
+	      GETACL: 3696 3696 0 547008 547008 16 922 1009
+	      SETACL: 0 0 0 0 0 0 0 0
+	FS_LOCATIONS: 0 0 0 0 0 0 0 0
+	RELEASE_LOCKOWNER: 39 39 0 4680 1716 0 18 20
+	     SECINFO: 0 0 0 0 0 0 0 0
+	FSID_PRESENT: 0 0 0 0 0 0 0 0
+	 EXCHANGE_ID: 0 0 0 0 0 0 0 0
+	CREATE_SESSION: 0 0 0 0 0 0 0 0
+	DESTROY_SESSION: 0 0 0 0 0 0 0 0
+	    SEQUENCE: 0 0 0 0 0 0 0 0
+	GET_LEASE_TIME: 0 0 0 0 0 0 0 0
+	RECLAIM_COMPLETE: 0 0 0 0 0 0 0 0
+	   LAYOUTGET: 0 0 0 0 0 0 0 0
+	GETDEVICEINFO: 0 0 0 0 0 0 0 0
+	LAYOUTCOMMIT: 0 0 0 0 0 0 0 0
+	LAYOUTRETURN: 0 0 0 0 0 0 0 0
+	SECINFO_NO_NAME: 0 0 0 0 0 0 0 0
+	TEST_STATEID: 0 0 0 0 0 0 0 0
+	FREE_STATEID: 0 0 0 0 0 0 0 0
+	GETDEVICELIST: 0 0 0 0 0 0 0 0
+	BIND_CONN_TO_SESSION: 0 0 0 0 0 0 0 0
+	DESTROY_CLIENTID: 0 0 0 0 0 0 0 0
+
+device gvfsd-fuse mounted on /run/user/106/gvfs with fstype fuse.gvfsd-fuse

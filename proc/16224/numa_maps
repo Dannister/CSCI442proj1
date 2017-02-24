@@ -1,0 +1,18 @@
+00400000 default file=/bin/dd mapped=10 N0=10
+0060c000 default file=/bin/dd anon=1 dirty=1 N0=1
+0060d000 default file=/bin/dd anon=1 dirty=1 N0=1
+00bd3000 default heap anon=5 dirty=5 N0=5
+7f59ef90b000 default file=/usr/lib/locale/locale-archive mapped=11 mapmax=24 N0=11
+7f59efbd4000 default file=/lib/x86_64-linux-gnu/libc-2.19.so mapped=83 mapmax=89 N0=83
+7f59efd8f000 default file=/lib/x86_64-linux-gnu/libc-2.19.so
+7f59eff8e000 default file=/lib/x86_64-linux-gnu/libc-2.19.so anon=4 dirty=4 N0=4
+7f59eff92000 default file=/lib/x86_64-linux-gnu/libc-2.19.so anon=2 dirty=2 N0=2
+7f59eff94000 default anon=3 dirty=3 N0=3
+7f59eff99000 default file=/lib/x86_64-linux-gnu/ld-2.19.so mapped=29 mapmax=72 N0=29
+7f59f018c000 default anon=3 dirty=3 N0=3
+7f59f01b9000 default anon=2 dirty=2 N0=2
+7f59f01bb000 default file=/lib/x86_64-linux-gnu/ld-2.19.so anon=1 dirty=1 N0=1
+7f59f01bc000 default file=/lib/x86_64-linux-gnu/ld-2.19.so anon=1 dirty=1 N0=1
+7f59f01bd000 default anon=1 dirty=1 N0=1
+7ffd28d35000 default stack anon=3 dirty=3 N0=3
+7ffd28d8f000 default

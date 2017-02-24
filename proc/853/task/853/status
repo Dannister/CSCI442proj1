@@ -1,0 +1,41 @@
+Name:	avahi-daemon
+State:	S (sleeping)
+Tgid:	853
+Ngid:	0
+Pid:	853
+PPid:	1
+TracerPid:	0
+Uid:	105	105	105	105
+Gid:	111	111	111	111
+FDSize:	64
+Groups:	111 
+VmPeak:	   94852 kB
+VmSize:	   94852 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    5436 kB
+VmRSS:	    3168 kB
+VmData:	    2964 kB
+VmStk:	     136 kB
+VmExe:	     116 kB
+VmLib:	    9296 kB
+VmPTE:	     196 kB
+VmSwap:	     644 kB
+Threads:	1
+SigQ:	0/63438
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000001000
+SigCgt:	0000000180004203
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000001fffffffff
+Seccomp:	0
+Cpus_allowed:	ffff
+Cpus_allowed_list:	0-15
+Mems_allowed:	00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	1850503
+nonvoluntary_ctxt_switches:	270653

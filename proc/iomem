@@ -1,0 +1,65 @@
+00000000-00000fff : reserved
+00001000-000917ff : System RAM
+00091800-0009ffff : reserved
+000a0000-000bffff : PCI Bus 0000:00
+000c0000-000cebff : Video ROM
+000cf000-000d65ff : Adapter ROM
+000e0000-000fffff : reserved
+  000f0000-000fffff : System ROM
+00100000-cf1f9fff : System RAM
+  01000000-0173a484 : Kernel code
+  0173a485-01d1e9ff : Kernel data
+  01e77000-01fe0fff : Kernel bss
+cf1fa000-cf23dfff : reserved
+cf23e000-cf5b6fff : System RAM
+cf5b7000-cf5e6fff : reserved
+cf5e7000-cf7e6fff : ACPI Non-volatile Storage
+cf7e7000-cf7fefff : ACPI Tables
+cf7ff000-cf7fffff : System RAM
+cf800000-cfffffff : RAM buffer
+d0000000-feafffff : PCI Bus 0000:00
+  d0000000-dfffffff : PCI Bus 0000:01
+    d0000000-dfffffff : 0000:01:00.0
+      d0000000-d05affff : vesafb
+  e0000000-e09fffff : PCI Bus 0000:03
+  e0a00000-e13fffff : PCI Bus 0000:03
+  e1400000-e14fffff : PCI Bus 0000:01
+    e1400000-e141ffff : 0000:01:00.0
+    e1420000-e143ffff : 0000:01:00.0
+    e1440000-e1443fff : 0000:01:00.1
+      e1440000-e1443fff : ICH HD audio
+  e1500000-e151ffff : 0000:00:19.0
+    e1500000-e151ffff : e1000e
+  e1530000-e15300ff : 0000:00:1f.3
+  e1540000-e15407ff : 0000:00:1f.2
+    e1540000-e15407ff : ahci
+  e1550000-e15503ff : 0000:00:1d.0
+    e1550000-e15503ff : ehci_hcd
+  e1560000-e1563fff : 0000:00:1b.0
+    e1560000-e1563fff : ICH HD audio
+  e1570000-e15703ff : 0000:00:1a.0
+    e1570000-e15703ff : ehci_hcd
+  e1580000-e1580fff : 0000:00:19.0
+    e1580000-e1580fff : e1000e
+  e1590000-e1590fff : 0000:00:16.3
+  e15b0000-e15b000f : 0000:00:16.0
+    e15b0000-e15b000f : mei_me
+  f8000000-fbffffff : PCI MMCONFIG 0000 [bus 00-3f]
+    f8000000-fbffffff : pnp 00:08
+fec00000-fec003ff : IOAPIC 0
+fed00000-fed003ff : HPET 0
+fed10000-fed17fff : pnp 00:08
+fed18000-fed18fff : pnp 00:08
+fed19000-fed19fff : pnp 00:08
+fed1c000-fed1ffff : reserved
+  fed1c000-fed1ffff : pnp 00:08
+    fed1f410-fed1f414 : iTCO_wdt
+fed20000-fed3ffff : pnp 00:08
+fed40000-fed44fff : PCI Bus 0000:00
+fed45000-fed8ffff : pnp 00:08
+fed91000-fed91fff : dmar0
+fee00000-feefffff : pnp 00:08
+  fee00000-fee00fff : Local APIC
+ffc00000-ffc1ffff : reserved
+100000000-22dffffff : System RAM
+22e000000-22fffffff : RAM buffer

@@ -1,0 +1,41 @@
+00400000 default file=/bin/cp mapped=22 N0=22
+0061e000 default file=/bin/cp anon=1 dirty=1 N0=1
+0061f000 default file=/bin/cp anon=1 dirty=1 N0=1
+00620000 default
+01060000 default heap anon=14 dirty=14 N0=14
+7f9b19c90000 default file=/usr/lib/locale/locale-archive mapped=11 mapmax=24 N0=11
+7f9b19f59000 default file=/lib/x86_64-linux-gnu/libdl-2.19.so mapped=2 mapmax=40 N0=2
+7f9b19f5c000 default file=/lib/x86_64-linux-gnu/libdl-2.19.so
+7f9b1a15b000 default file=/lib/x86_64-linux-gnu/libdl-2.19.so anon=1 dirty=1 N0=1
+7f9b1a15c000 default file=/lib/x86_64-linux-gnu/libdl-2.19.so anon=1 dirty=1 N0=1
+7f9b1a15d000 default file=/lib/x86_64-linux-gnu/libpcre.so.3.13.1 mapped=2 mapmax=35 N0=2
+7f9b1a19a000 default file=/lib/x86_64-linux-gnu/libpcre.so.3.13.1
+7f9b1a399000 default file=/lib/x86_64-linux-gnu/libpcre.so.3.13.1 anon=1 dirty=1 N0=1
+7f9b1a39a000 default file=/lib/x86_64-linux-gnu/libpcre.so.3.13.1 anon=1 dirty=1 N0=1
+7f9b1a39b000 default file=/lib/x86_64-linux-gnu/libc-2.19.so mapped=128 mapmax=89 N0=128
+7f9b1a556000 default file=/lib/x86_64-linux-gnu/libc-2.19.so
+7f9b1a755000 default file=/lib/x86_64-linux-gnu/libc-2.19.so anon=4 dirty=4 N0=4
+7f9b1a759000 default file=/lib/x86_64-linux-gnu/libc-2.19.so anon=2 dirty=2 N0=2
+7f9b1a75b000 default anon=3 dirty=3 N0=3
+7f9b1a760000 default file=/lib/x86_64-linux-gnu/libattr.so.1.1.0 mapped=2 mapmax=3 N0=2
+7f9b1a764000 default file=/lib/x86_64-linux-gnu/libattr.so.1.1.0
+7f9b1a963000 default file=/lib/x86_64-linux-gnu/libattr.so.1.1.0 anon=1 dirty=1 N0=1
+7f9b1a964000 default file=/lib/x86_64-linux-gnu/libattr.so.1.1.0 anon=1 dirty=1 N0=1
+7f9b1a965000 default file=/lib/x86_64-linux-gnu/libacl.so.1.1.0 mapped=2 mapmax=3 N0=2
+7f9b1a96c000 default file=/lib/x86_64-linux-gnu/libacl.so.1.1.0
+7f9b1ab6b000 default file=/lib/x86_64-linux-gnu/libacl.so.1.1.0 anon=1 dirty=1 N0=1
+7f9b1ab6c000 default file=/lib/x86_64-linux-gnu/libacl.so.1.1.0 anon=1 dirty=1 N0=1
+7f9b1ab6d000 default file=/lib/x86_64-linux-gnu/libselinux.so.1 mapped=10 mapmax=37 N0=10
+7f9b1ab8d000 default file=/lib/x86_64-linux-gnu/libselinux.so.1
+7f9b1ad8c000 default file=/lib/x86_64-linux-gnu/libselinux.so.1 anon=1 dirty=1 N0=1
+7f9b1ad8d000 default file=/lib/x86_64-linux-gnu/libselinux.so.1 anon=1 dirty=1 N0=1
+7f9b1ad8e000 default anon=1 dirty=1 N0=1
+7f9b1ad90000 default file=/lib/x86_64-linux-gnu/ld-2.19.so mapped=29 mapmax=72 N0=29
+7f9b1af81000 default anon=5 dirty=5 N0=5
+7f9b1afaf000 default file=/usr/share/locale-langpack/en/LC_MESSAGES/coreutils.mo mapped=1 N0=1
+7f9b1afb0000 default anon=2 dirty=2 N0=2
+7f9b1afb2000 default file=/lib/x86_64-linux-gnu/ld-2.19.so anon=1 dirty=1 N0=1
+7f9b1afb3000 default file=/lib/x86_64-linux-gnu/ld-2.19.so anon=1 dirty=1 N0=1
+7f9b1afb4000 default anon=1 dirty=1 N0=1
+7ffcd40d3000 default stack anon=6 dirty=6 N0=6
+7ffcd413e000 default

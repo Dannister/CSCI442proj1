@@ -1,0 +1,41 @@
+Name:	exim4
+State:	S (sleeping)
+Tgid:	1686
+Ngid:	0
+Pid:	1686
+PPid:	1
+TracerPid:	0
+Uid:	120	120	120	120
+Gid:	127	127	127	127
+FDSize:	64
+Groups:	127 
+VmPeak:	   94096 kB
+VmSize:	   94076 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    2740 kB
+VmRSS:	     344 kB
+VmData:	     668 kB
+VmStk:	     544 kB
+VmExe:	     920 kB
+VmLib:	   11608 kB
+VmPTE:	     184 kB
+VmSwap:	     804 kB
+Threads:	1
+SigQ:	0/63438
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000001000
+SigCgt:	0000000180012201
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000001fffffffff
+Seccomp:	0
+Cpus_allowed:	ffff
+Cpus_allowed_list:	0-15
+Mems_allowed:	00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	411
+nonvoluntary_ctxt_switches:	0

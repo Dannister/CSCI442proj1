@@ -1,0 +1,13 @@
+              total counts            |    outstanding
+type           alloc  fail      bytes | allocs      bytes
+system             0     0 8327049216 |      0 -131941395333120
+locked        858981     0 3530037928 |  29494  127972008
+sareas             5     0      40960 |      5      40960
+driver      13841858     0 1332684078 |    603    8385147
+magic             22     0        528 |      0          0
+maplist       426299     0   47745488 |     39       4368
+vmalist       426490     0   10235760 |     28        672
+buflist        13645     0     638528 |    814     212792
+files            147     0    5296872 |     15    1050536
+contexts           3     0        112 |      1         64
+hwcontext         45     0     368640 |      3      24576

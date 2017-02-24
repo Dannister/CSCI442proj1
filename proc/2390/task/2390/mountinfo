@@ -1,0 +1,2 @@
+18 22 0:3 / / rw,nosuid,nodev,noexec,relatime - proc proc rw
+32 18 0:23 / /sys/fs/binfmt_misc rw,nosuid,nodev,noexec,relatime - binfmt_misc binfmt_misc rw

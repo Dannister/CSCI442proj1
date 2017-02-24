@@ -1,0 +1,49 @@
+systemd-udevd (394, #threads: 1)
+-------------------------------------------------------------------
+se.exec_start                                :     360558039.606861
+se.vruntime                                  :            24.559821
+se.sum_exec_runtime                          :           231.722448
+se.statistics.wait_start                     :             0.000000
+se.statistics.sleep_start                    :     360558039.606861
+se.statistics.block_start                    :             0.000000
+se.statistics.sleep_max                      :     173671509.038176
+se.statistics.block_max                      :           221.584853
+se.statistics.exec_max                       :             4.001972
+se.statistics.slice_max                      :             0.081188
+se.statistics.wait_max                       :             0.883655
+se.statistics.wait_sum                       :             7.673560
+se.statistics.wait_count                     :                  648
+se.statistics.iowait_sum                     :          2490.818481
+se.statistics.iowait_count                   :                  140
+se.nr_migrations                             :                   67
+se.statistics.nr_migrations_cold             :                    0
+se.statistics.nr_failed_migrations_affine    :                    0
+se.statistics.nr_failed_migrations_running   :                   14
+se.statistics.nr_failed_migrations_hot       :                   39
+se.statistics.nr_forced_migrations           :                    0
+se.statistics.nr_wakeups                     :                  563
+se.statistics.nr_wakeups_sync                :                    0
+se.statistics.nr_wakeups_migrate             :                   60
+se.statistics.nr_wakeups_local               :                  161
+se.statistics.nr_wakeups_remote              :                  402
+se.statistics.nr_wakeups_affine              :                   67
+se.statistics.nr_wakeups_affine_attempts     :                  394
+se.statistics.nr_wakeups_passive             :                    0
+se.statistics.nr_wakeups_idle                :                    0
+avg_atom                                     :             0.361501
+avg_per_cpu                                  :             3.458544
+nr_switches                                  :                  641
+nr_voluntary_switches                        :                  563
+nr_involuntary_switches                      :                   78
+se.load.weight                               :                 1024
+se.avg.runnable_avg_sum                      :                  117
+se.avg.runnable_avg_period                   :                48107
+se.avg.load_avg_contrib                      :                    2
+se.avg.decay_count                           :            343854942
+policy                                       :                    0
+prio                                         :                  120
+clock-delta                                  :                   44
+mm->numa_scan_seq                            :                    0
+numa_migrations, 0
+numa_faults, 0, 0, 1, 0, -1
+numa_faults, 1, 0, 0, 0, -1

@@ -1,0 +1,41 @@
+Name:	gvfsd-fuse
+State:	S (sleeping)
+Tgid:	4343
+Ngid:	0
+Pid:	4343
+PPid:	1
+TracerPid:	0
+Uid:	106	106	106	106
+Gid:	113	113	113	113
+FDSize:	64
+Groups:	113 
+VmPeak:	  345660 kB
+VmSize:	  280124 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    5160 kB
+VmRSS:	    5160 kB
+VmData:	  230092 kB
+VmStk:	     136 kB
+VmExe:	      28 kB
+VmLib:	    6588 kB
+VmPTE:	     144 kB
+VmSwap:	       0 kB
+Threads:	5
+SigQ:	0/63438
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000001000
+SigCgt:	0000000180004003
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000001fffffffff
+Seccomp:	0
+Cpus_allowed:	ffff
+Cpus_allowed_list:	0-15
+Mems_allowed:	00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	3
+nonvoluntary_ctxt_switches:	1

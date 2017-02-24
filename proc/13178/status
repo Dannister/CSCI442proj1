@@ -1,0 +1,41 @@
+Name:	vi
+State:	T (stopped)
+Tgid:	13178
+Ngid:	0
+Pid:	13178
+PPid:	9871
+TracerPid:	0
+Uid:	23522	23522	23522	23522
+Gid:	23522	23522	23522	23522
+FDSize:	256
+Groups:	23522 
+VmPeak:	  169532 kB
+VmSize:	  169316 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    9068 kB
+VmRSS:	    9064 kB
+VmData:	   11364 kB
+VmStk:	     136 kB
+VmExe:	    2416 kB
+VmLib:	   26224 kB
+VmPTE:	     292 kB
+VmSwap:	       0 kB
+Threads:	2
+SigQ:	0/63438
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000003000
+SigCgt:	00000001ed824eff
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	0000001fffffffff
+Seccomp:	0
+Cpus_allowed:	ffff
+Cpus_allowed_list:	0-15
+Mems_allowed:	00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	129
+nonvoluntary_ctxt_switches:	98
