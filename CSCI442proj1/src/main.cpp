@@ -43,9 +43,6 @@ string formatSecondsMSSCC(int seconds) {
 
 }
 
-
-
-
 /**
  * Entry point for the program.
  */
@@ -58,11 +55,15 @@ int main() {
 
   // Set getch to return after 1000 milliseconds; this allows the program to
   // immediately respond to user input while not blocking indefinitely.
-  timeout(1000);
+  timeout(3000);
 
   int tick = 1;
 
   int prevCPUTime = 0;
+
+  std::vector<CpuInfo> oldCPUs;
+  int oldCPUTotalTime = 0;
+  std::vector<ProcessInfo> oldProcesses;
 
   while (true) {
     wclear(stdscr);
@@ -177,9 +178,22 @@ int main() {
 
       mvprintw(currRow, 24, "%c", sysInfo.processes.at(i).state);
 
-      int lastProcessor = sysInfo.processes.at(i).processor;
-      int processorTotalTime
-      mvprintw(currRow, 31, "%1.1f%%", sysInfo.processes.at(i).cpu_percent);
+      int elapsedTime = 4;
+      int elapsedProcessTime = 1;
+      if (oldCPUTotalTime != 0) {
+        elapsedTime = cpus.at(0).total_time() - oldCPUTotalTime;
+        mvprintw(38, 38, "Elapsed time: %d", cpus.at(0).total_time() -
+          oldCPUTotalTime);
+        mvprintw(39 + i, 38, "Process time: %d",
+          (sysInfo.processes.at(i).utime - oldProcesses.at(i).utime) +
+          (sysInfo.processes.at(i).stime - oldProcesses.at(i).stime));
+        elapsedProcessTime =
+          (sysInfo.processes.at(i).utime - oldProcesses.at(i).utime) +
+          (sysInfo.processes.at(i).stime - oldProcesses.at(i).stime);
+        sysInfo.processes.at(i).cpu_percent = (double)elapsedProcessTime *
+          1000 / elapsedTime;
+      }
+      mvprintw(currRow, 30, "%1.1f%%", sysInfo.processes.at(i).cpu_percent);
 
       seconds = (sysInfo.processes.at(i).utime +
         sysInfo.processes.at(i).stime) /
@@ -194,10 +208,11 @@ int main() {
           sysInfo.processes.at(i).command_line.c_str());
     }
 
-
     // Display the counter using printw (an ncurses function)
     printw("\n\nBehold, the number:\n%d", tick++);
 
+    oldCPUTotalTime = cpus.at(0).total_time();
+    oldProcesses = sysInfo.processes;
     // Redraw the screen.
     refresh();
 
