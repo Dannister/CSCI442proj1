@@ -1,0 +1,29 @@
+00400000 default file=/bin/bash mapped=183 mapmax=4 active=182 N0=183
+006ef000 default file=/bin/bash anon=1 dirty=1 N0=1
+006f0000 default file=/bin/bash anon=9 dirty=9 N0=9
+006f9000 default anon=6 dirty=6 N0=6
+021d8000 default heap anon=1092 dirty=1092 N0=1092
+7f459c592000 default file=/usr/lib/locale/locale-archive mapped=17 mapmax=24 N0=17
+7f459c85b000 default file=/lib/x86_64-linux-gnu/libc-2.19.so mapped=180 mapmax=89 N0=180
+7f459ca16000 default file=/lib/x86_64-linux-gnu/libc-2.19.so
+7f459cc15000 default file=/lib/x86_64-linux-gnu/libc-2.19.so anon=4 dirty=4 N0=4
+7f459cc19000 default file=/lib/x86_64-linux-gnu/libc-2.19.so anon=2 dirty=2 N0=2
+7f459cc1b000 default anon=3 dirty=3 N0=3
+7f459cc20000 default file=/lib/x86_64-linux-gnu/libdl-2.19.so mapped=2 mapmax=40 N0=2
+7f459cc23000 default file=/lib/x86_64-linux-gnu/libdl-2.19.so
+7f459ce22000 default file=/lib/x86_64-linux-gnu/libdl-2.19.so anon=1 dirty=1 N0=1
+7f459ce23000 default file=/lib/x86_64-linux-gnu/libdl-2.19.so anon=1 dirty=1 N0=1
+7f459ce24000 default file=/lib/x86_64-linux-gnu/libtinfo.so.5.9 mapped=30 mapmax=5 N0=30
+7f459ce49000 default file=/lib/x86_64-linux-gnu/libtinfo.so.5.9
+7f459d048000 default file=/lib/x86_64-linux-gnu/libtinfo.so.5.9 anon=4 dirty=4 N0=4
+7f459d04c000 default file=/lib/x86_64-linux-gnu/libtinfo.so.5.9 anon=1 dirty=1 N0=1
+7f459d04d000 default file=/lib/x86_64-linux-gnu/ld-2.19.so mapped=28 mapmax=72 N0=28
+7f459d20b000 default file=/var/cache/nscd/passwd mapped=3 mapmax=26 N0=3
+7f459d240000 default anon=3 dirty=3 N0=3
+7f459d266000 default file=/usr/lib/x86_64-linux-gnu/gconv/gconv-modules.cache mapped=6 mapmax=18 N0=6
+7f459d26d000 default anon=2 dirty=2 N0=2
+7f459d26f000 default file=/lib/x86_64-linux-gnu/ld-2.19.so anon=1 dirty=1 N0=1
+7f459d270000 default file=/lib/x86_64-linux-gnu/ld-2.19.so anon=1 dirty=1 N0=1
+7f459d271000 default anon=1 dirty=1 N0=1
+7ffed503e000 default stack anon=7 dirty=7 N0=7
+7ffed50dd000 default

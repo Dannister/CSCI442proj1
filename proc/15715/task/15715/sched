@@ -1,0 +1,48 @@
+kworker/2:2 (15715, #threads: 1)
+-------------------------------------------------------------------
+se.exec_start                                :     361505226.763495
+se.vruntime                                  :       5902140.376726
+se.sum_exec_runtime                          :           139.382944
+se.statistics.wait_start                     :             0.000000
+se.statistics.sleep_start                    :     361505226.763495
+se.statistics.block_start                    :             0.000000
+se.statistics.sleep_max                      :          2000.880356
+se.statistics.block_max                      :             0.085497
+se.statistics.exec_max                       :             0.061969
+se.statistics.slice_max                      :             0.049745
+se.statistics.wait_max                       :             8.003182
+se.statistics.wait_sum                       :           142.265181
+se.statistics.wait_count                     :                13117
+se.statistics.iowait_sum                     :             0.000000
+se.statistics.iowait_count                   :                    0
+se.nr_migrations                             :                    2
+se.statistics.nr_migrations_cold             :                    0
+se.statistics.nr_failed_migrations_affine    :                  214
+se.statistics.nr_failed_migrations_running   :                    0
+se.statistics.nr_failed_migrations_hot       :                    0
+se.statistics.nr_forced_migrations           :                    0
+se.statistics.nr_wakeups                     :                13116
+se.statistics.nr_wakeups_sync                :                    0
+se.statistics.nr_wakeups_migrate             :                    1
+se.statistics.nr_wakeups_local               :                13115
+se.statistics.nr_wakeups_remote              :                    1
+se.statistics.nr_wakeups_affine              :                    0
+se.statistics.nr_wakeups_affine_attempts     :                    0
+se.statistics.nr_wakeups_passive             :                    0
+se.statistics.nr_wakeups_idle                :                    0
+avg_atom                                     :             0.010626
+avg_per_cpu                                  :            69.691472
+nr_switches                                  :                13117
+nr_voluntary_switches                        :                13117
+nr_involuntary_switches                      :                    0
+se.load.weight                               :                 1024
+se.avg.runnable_avg_sum                      :                  482
+se.avg.runnable_avg_period                   :                47359
+se.avg.load_avg_contrib                      :                    0
+se.avg.decay_count                           :            344758251
+policy                                       :                    0
+prio                                         :                  120
+clock-delta                                  :                   44
+numa_migrations, 0
+numa_faults, 0, 0, 1, 0, -1
+numa_faults, 1, 0, 0, 0, -1

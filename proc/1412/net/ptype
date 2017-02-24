@@ -1,0 +1,5 @@
+Type Device      Function
+ALL  em1      packet_rcv
+0800          ip_rcv
+0806          arp_rcv
+86dd          ipv6_rcv

@@ -1,0 +1,41 @@
+Name:	gmain
+State:	S (sleeping)
+Tgid:	1070
+Ngid:	0
+Pid:	1163
+PPid:	1
+TracerPid:	0
+Uid:	0	0	0	0
+Gid:	0	0	0	0
+FDSize:	64
+Groups:	0 
+VmPeak:	  334468 kB
+VmSize:	  334468 kB
+VmLck:	       0 kB
+VmPin:	       0 kB
+VmHWM:	    5000 kB
+VmRSS:	     932 kB
+VmData:	  221836 kB
+VmStk:	     136 kB
+VmExe:	     892 kB
+VmLib:	    8812 kB
+VmPTE:	     264 kB
+VmSwap:	     924 kB
+Threads:	3
+SigQ:	0/63438
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	fffffffe7ffbfeff
+SigIgn:	0000000000001000
+SigCgt:	0000000180004002
+CapInh:	0000000000000000
+CapPrm:	0000001fffffffff
+CapEff:	0000001fffffffff
+CapBnd:	0000001fffffffff
+Seccomp:	0
+Cpus_allowed:	ffff
+Cpus_allowed_list:	0-15
+Mems_allowed:	00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	7
+nonvoluntary_ctxt_switches:	0

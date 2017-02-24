@@ -1,0 +1,49 @@
+atieventsd (1913, #threads: 1)
+-------------------------------------------------------------------
+se.exec_start                                :        110178.794364
+se.vruntime                                  :            33.759405
+se.sum_exec_runtime                          :            13.497925
+se.statistics.wait_start                     :             0.000000
+se.statistics.sleep_start                    :        110178.794364
+se.statistics.block_start                    :             0.000000
+se.statistics.sleep_max                      :          1001.969186
+se.statistics.block_max                      :             0.000000
+se.statistics.exec_max                       :             0.189121
+se.statistics.slice_max                      :             0.030697
+se.statistics.wait_max                       :             0.031360
+se.statistics.wait_sum                       :             0.061918
+se.statistics.wait_count                     :                  143
+se.statistics.iowait_sum                     :             0.000000
+se.statistics.iowait_count                   :                    0
+se.nr_migrations                             :                    7
+se.statistics.nr_migrations_cold             :                    0
+se.statistics.nr_failed_migrations_affine    :                    0
+se.statistics.nr_failed_migrations_running   :                    2
+se.statistics.nr_failed_migrations_hot       :                    0
+se.statistics.nr_forced_migrations           :                    0
+se.statistics.nr_wakeups                     :                  140
+se.statistics.nr_wakeups_sync                :                   71
+se.statistics.nr_wakeups_migrate             :                    5
+se.statistics.nr_wakeups_local               :                   68
+se.statistics.nr_wakeups_remote              :                   72
+se.statistics.nr_wakeups_affine              :                    0
+se.statistics.nr_wakeups_affine_attempts     :                    0
+se.statistics.nr_wakeups_passive             :                    0
+se.statistics.nr_wakeups_idle                :                    0
+avg_atom                                     :             0.095055
+avg_per_cpu                                  :             1.928275
+nr_switches                                  :                  142
+nr_voluntary_switches                        :                  141
+nr_involuntary_switches                      :                    1
+se.load.weight                               :                 1024
+se.avg.runnable_avg_sum                      :                  147
+se.avg.runnable_avg_period                   :                47919
+se.avg.load_avg_contrib                      :                    0
+se.avg.decay_count                           :               105075
+policy                                       :                    0
+prio                                         :                  120
+clock-delta                                  :                   42
+mm->numa_scan_seq                            :                    0
+numa_migrations, 0
+numa_faults, 0, 0, 1, 0, -1
+numa_faults, 1, 0, 0, 0, -1

@@ -1,0 +1,94 @@
+I: Bus=0019 Vendor=0000 Product=0001 Version=0000
+N: Name="Power Button"
+P: Phys=PNP0C0C/button/input0
+S: Sysfs=/devices/LNXSYSTM:00/device:00/PNP0C0C:00/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=10000000000000 0
+
+I: Bus=0019 Vendor=0000 Product=0001 Version=0000
+N: Name="Power Button"
+P: Phys=LNXPWRBN/button/input0
+S: Sysfs=/devices/LNXSYSTM:00/LNXPWRBN:00/input/input1
+U: Uniq=
+H: Handlers=kbd event1 
+B: PROP=0
+B: EV=3
+B: KEY=10000000000000 0
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH Front Headphone"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card0/input8
+U: Uniq=
+H: Handlers=event2 
+B: PROP=0
+B: EV=21
+B: SW=4
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH Line Out"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card0/input7
+U: Uniq=
+H: Handlers=event3 
+B: PROP=0
+B: EV=21
+B: SW=40
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH Front Mic"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card0/input6
+U: Uniq=
+H: Handlers=event4 
+B: PROP=0
+B: EV=21
+B: SW=10
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH Rear Mic"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1b.0/sound/card0/input5
+U: Uniq=
+H: Handlers=event5 
+B: PROP=0
+B: EV=21
+B: SW=10
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA ATI HDMI HDMI/DP,pcm=3"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:01.0/0000:01:00.1/sound/card1/input9
+U: Uniq=
+H: Handlers=event6 
+B: PROP=0
+B: EV=21
+B: SW=140
+
+I: Bus=0003 Vendor=0461 Product=4d81 Version=0111
+N: Name="USB Optical Mouse"
+P: Phys=usb-0000:00:1d.0-1.5/input0
+S: Sysfs=/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.5/2-1.5:1.0/input/input10
+U: Uniq=
+H: Handlers=mouse0 event7 
+B: PROP=0
+B: EV=17
+B: KEY=70000 0 0 0 0
+B: REL=143
+B: MSC=10
+
+I: Bus=0003 Vendor=413c Product=2107 Version=0110
+N: Name="Dell Dell USB Entry Keyboard"
+P: Phys=usb-0000:00:1d.0-1.6/input0
+S: Sysfs=/devices/pci0000:00/0000:00:1d.0/usb2/2-1/2-1.6/2-1.6:1.0/input/input11
+U: Uniq=
+H: Handlers=sysrq kbd event8 
+B: PROP=0
+B: EV=120013
+B: KEY=1000000000007 ff9f207ac14057ff febeffdfffefffff fffffffffffffffe
+B: MSC=10
+B: LED=7
+

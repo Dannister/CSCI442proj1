@@ -1,0 +1,27 @@
+Device	S-state	  Status   Sysfs node
+EHC1	  S3	*enabled   pci:0000:00:1d.0
+EHC2	  S3	*enabled   pci:0000:00:1a.0
+HDEF	  S4	*disabled  pci:0000:00:1b.0
+GLAN	  S4	*enabled   pci:0000:00:19.0
+RP01	  S4	*disabled  pci:0000:00:1c.0
+PXSX	  S4	*disabled
+RP02	  S4	*disabled
+PXSX	  S4	*disabled
+RP03	  S4	*disabled  pci:0000:00:1c.2
+PXSX	  S4	*disabled
+RP04	  S4	*disabled
+PXSX	  S4	*disabled
+RP05	  S4	*disabled
+PXSX	  S4	*disabled
+RP06	  S4	*disabled
+PXSX	  S4	*disabled
+RP07	  S4	*disabled
+PXSX	  S4	*disabled
+RP08	  S4	*disabled
+PXSX	  S4	*disabled
+PEG0	  S4	*disabled  pci:0000:00:01.0
+PEGP	  S4	*disabled
+PEG1	  S4	*disabled
+PEG2	  S4	*disabled
+PEG3	  S4	*disabled
+P0P1	  S4	*disabled  pci:0000:00:1e.0

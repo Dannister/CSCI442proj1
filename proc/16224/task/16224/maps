@@ -1,0 +1,19 @@
+00400000-0040d000 r-xp 00000000 08:01 24379485                           /bin/dd
+0060c000-0060d000 r--p 0000c000 08:01 24379485                           /bin/dd
+0060d000-0060e000 rw-p 0000d000 08:01 24379485                           /bin/dd
+00bd3000-00bf4000 rw-p 00000000 00:00 0                                  [heap]
+7f59ef90b000-7f59efbd4000 r--p 00000000 08:01 10616972                   /usr/lib/locale/locale-archive
+7f59efbd4000-7f59efd8f000 r-xp 00000000 08:01 9044394                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f59efd8f000-7f59eff8e000 ---p 001bb000 08:01 9044394                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f59eff8e000-7f59eff92000 r--p 001ba000 08:01 9044394                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f59eff92000-7f59eff94000 rw-p 001be000 08:01 9044394                    /lib/x86_64-linux-gnu/libc-2.19.so
+7f59eff94000-7f59eff99000 rw-p 00000000 00:00 0 
+7f59eff99000-7f59effbc000 r-xp 00000000 08:01 9044348                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f59f018c000-7f59f018f000 rw-p 00000000 00:00 0 
+7f59f01b9000-7f59f01bb000 rw-p 00000000 00:00 0 
+7f59f01bb000-7f59f01bc000 r--p 00022000 08:01 9044348                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f59f01bc000-7f59f01bd000 rw-p 00023000 08:01 9044348                    /lib/x86_64-linux-gnu/ld-2.19.so
+7f59f01bd000-7f59f01be000 rw-p 00000000 00:00 0 
+7ffd28d36000-7ffd28d57000 rw-p 00000000 00:00 0                          [stack]
+7ffd28d8f000-7ffd28d91000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]

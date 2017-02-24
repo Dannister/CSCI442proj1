@@ -1,0 +1,7 @@
+Attached devices:
+Host: scsi0 Channel: 00 Id: 00 Lun: 00
+  Vendor: ATA      Model: ST3500413AS      Rev: JC49
+  Type:   Direct-Access                    ANSI  SCSI revision: 05
+Host: scsi1 Channel: 00 Id: 00 Lun: 00
+  Vendor: HL-DT-ST Model: DVD+-RW GH70N    Rev: A101
+  Type:   CD-ROM                           ANSI  SCSI revision: 05

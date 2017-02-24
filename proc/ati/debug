@@ -1,0 +1,12 @@
+DebugTraceMask=0x0, 0x0. DebugLevelMask=0x0.
+echo DebugTraceMask[0/1]=0xXX > /proc/dri/debug  -- Enable trace functions with specified with bitmask.
+Bit mask define for EnableTrace0:(bit0-bit31) 
+FN_FIREGL_OPEN_RELEASE=0,FN_FIREGL_IOCTL, FN_FIREGL_MMAP, FN_FIREGL_READ_WRITE
+FN_FIREGL_FASYNC=4,FN_FIREGL_POLL, FN_FIREGL_LSEEK, FN_FIREGL_COMPAT_IOCTL
+FN_DRM_VM_OPEN_CLOSE=8, FN_DRM_NOPAGE, FN_FIREGL_ACPI, FN_FIREGL_IRQ 
+FN_FIREGL_PROC=12, FN_FIREGL_KAS, FN_FIREGL_KCL, FN_FIREGL_INIT 
+FN_GENERIC1=16, FN_GENERIC2, ... FN_GENERIC31 
+Bit mask for EnableTrace1 are reserved for developer.
+echo DebugLevelMask=0xXX > /proc/dri/debug  -- Enable debug message output with different level.
+FN_DEBUG_TRACE=0, FN_DEBUG_LEVEL1, ... FN_DEBUG_LEVEL7
+n/a

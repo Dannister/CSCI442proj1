@@ -1,0 +1,4 @@
+IP address       HW type     Flags       HW address            Mask     Device
+138.67.187.240   0x1         0x2         00:50:56:b1:7e:6e     *        em1
+138.67.187.254   0x1         0x2         00:00:0c:9f:f0:ba     *        em1
+138.67.186.218   0x1         0x2         18:03:73:d5:e8:6f     *        em1

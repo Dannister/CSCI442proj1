@@ -1,0 +1,16 @@
+rw
+delalloc
+barrier
+user_xattr
+acl
+resuid=0
+resgid=0
+errors=remount-ro
+commit=5
+min_batch_time=0
+max_batch_time=15000
+stripe=0
+data=ordered
+inode_readahead_blks=32
+init_itable=10
+max_dir_size_kb=0
