@@ -325,11 +325,6 @@ int main(int argc, char **argv) {
       int elapsedProcessTime = 1;
       if (oldCPUTotalTime != 0) {
         elapsedTime = cpus.at(0).total_time() - oldCPUTotalTime;
-        mvprintw(38, 38, "Elapsed time: %d", cpus.at(0).total_time() -
-          oldCPUTotalTime);
-        mvprintw(39 + i, 38, "Process time: %d",
-          (processes.at(i).utime - oldProcesses.at(i).utime) +
-          (processes.at(i).stime - oldProcesses.at(i).stime));
         elapsedProcessTime =
           (processes.at(i).utime - oldProcesses.at(i).utime) +
           (processes.at(i).stime - oldProcesses.at(i).stime);
@@ -337,7 +332,6 @@ int main(int argc, char **argv) {
           1000.0 / elapsedTime;
       }
       mvprintw(currRow, 30, "%1.1f%%", processes.at(i).cpu_percent);
-      mvprintw(50, 38, "test %d %s", delay, colToSortBy);
 
       seconds = (processes.at(i).utime +
         processes.at(i).stime) /
