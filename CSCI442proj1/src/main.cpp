@@ -128,7 +128,7 @@ void sortByTIME(vector<ProcessInfo> &processes) {
  * Entry point for the program.
  */
 int main(int argc, char **argv) {
-  int delay = 3000;
+  int delay = 1000;
   char* colToSortBy = "PID";
   int showHelpFlag = 0;
   int c;
