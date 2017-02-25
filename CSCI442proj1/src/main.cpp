@@ -9,6 +9,7 @@
 #include <unistd.h>
 #include <getopt.h>
 #include <iostream>
+#include <map>
 
 using namespace std;
 
@@ -45,7 +46,8 @@ void checkSortArg(char* argChar) {
     }
 }
 
-int partitionCPU(vector<ProcessInfo>& processes, int left, int right, double cpuPerc) {
+int partitionCPU(vector<ProcessInfo>& processes, int left, int right,
+  double cpuPerc) {
   for (int i=left; i<right; ++i) {
     if (processes[i].cpu_percent > cpuPerc) {
       swap(processes[i], processes[left]);
@@ -60,7 +62,8 @@ void qsortCPU(vector<ProcessInfo>& processes, int left, int right) {
 
   int middle = left + (right - left) / 2;
   swap(processes[middle], processes[left]);
-  int midpoint = partitionCPU(processes, left + 1, right, processes[left].cpu_percent);
+  int midpoint = partitionCPU(processes, left + 1, right,
+    processes[left].cpu_percent);
   swap(processes[left], processes[midpoint]);
   qsortCPU(processes, left, midpoint);
   qsortCPU(processes, midpoint + 1, right);
@@ -194,6 +197,7 @@ int main(int argc, char **argv) {
   std::vector<CpuInfo> oldCPUs;
   int oldCPUTotalTime = 0;
   std::vector<ProcessInfo> oldProcesses;
+  map<int, ProcessInfo> procMap;
 
   while (true) {
     wclear(stdscr);
@@ -296,11 +300,13 @@ int main(int argc, char **argv) {
     string sortColumn(colToSortBy);
     if (sortColumn == "CPU") {
       sortByCPU(processes);
-      //sortByCPU(oldProcesses);
+      sortByCPU(oldProcesses);
     } else if (sortColumn == "MEM") {
       sortByMEM(processes);
+      sortByMEM(oldProcesses);
     } else if (sortColumn == "TIME") {
       sortByTIME(processes);
+      sortByTIME(oldProcesses);
     }
 
     // PID, resident memory size, current state (single letter),
@@ -323,13 +329,15 @@ int main(int argc, char **argv) {
 
       int elapsedTime = 4;
       int elapsedProcessTime = 1;
-      if (oldCPUTotalTime != 0) {
-        elapsedTime = cpus.at(0).total_time() - oldCPUTotalTime;
+      if (oldCPUs.size() != 0) {
+        elapsedTime = cpus.at(processes.at(i).processor + 1).total_time() -
+          oldCPUs.at(processes.at(i).processor + 1).total_time();
+        ProcessInfo prevProcInfo = procMap[processes.at(i).pid];
         elapsedProcessTime =
-          (processes.at(i).utime - oldProcesses.at(i).utime) +
-          (processes.at(i).stime - oldProcesses.at(i).stime);
+          (processes.at(i).utime - prevProcInfo.utime) +
+          (processes.at(i).stime - prevProcInfo.stime);
         processes.at(i).cpu_percent = (double)elapsedProcessTime *
-          1000.0 / elapsedTime;
+          100.0 / elapsedTime;
       }
       mvprintw(currRow, 30, "%1.1f%%", processes.at(i).cpu_percent);
 
@@ -346,7 +354,14 @@ int main(int argc, char **argv) {
           processes.at(i).comm);
     }
 
-    oldCPUTotalTime = cpus.at(0).total_time();
+    for (int i = 0; i < processes.size(); i++) {
+      ProcessInfo tmpProc;
+      tmpProc.utime = processes.at(i).utime;
+      tmpProc.stime = processes.at(i).stime;
+      procMap[processes.at(i).pid] = tmpProc;
+    }
+
+    oldCPUs = cpus;
     oldProcesses = processes;
     // Redraw the screen.
     refresh();
