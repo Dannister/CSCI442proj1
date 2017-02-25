@@ -7,6 +7,8 @@
 #include <info/system_info.h>
 #include <sstream>
 #include <unistd.h>
+#include <getopt.h>
+#include <iostream>
 
 using namespace std;
 
@@ -33,20 +35,150 @@ int getLengthOfNum(int num) {
   return numStr.length();
 }
 
-string formatSecondsDDHHMMSS(int seconds) {
-  int hours = seconds / 3600;
-  int minutes = seconds / 60;
-  int remainingSeconds = seconds % 60;
+void checkSortArg(char* argChar) {
+  string arg(argChar);
+  if (arg == "" || ( arg != "PID" && arg != "CPU" && arg != "MEM" &&
+    arg != "TIME")) {
+      std::cout << "Invalid argument to sort-key, run mytop with -h or --help."
+      << "\n\n";
+      exit(0);
+    }
 }
 
-string formatSecondsMSSCC(int seconds) {
+int partitionCPU(vector<ProcessInfo>& processes, int left, int right, double cpuPerc) {
+  for (int i=left; i<right; ++i) {
+    if (processes[i].cpu_percent > cpuPerc) {
+      swap(processes[i], processes[left]);
+      left ++;
+    }
+  }
+  return left - 1;
+}
 
+void qsortCPU(vector<ProcessInfo>& processes, int left, int right) {
+  if (left >= right) return;
+
+  int middle = left + (right - left) / 2;
+  swap(processes[middle], processes[left]);
+  int midpoint = partitionCPU(processes, left + 1, right, processes[left].cpu_percent);
+  swap(processes[left], processes[midpoint]);
+  qsortCPU(processes, left, midpoint);
+  qsortCPU(processes, midpoint + 1, right);
+}
+
+int partitionMEM(vector<ProcessInfo>& processes, int left, int right, long rss) {
+  for (int i=left; i<right; ++i) {
+    if (processes[i].rss > rss) {
+      swap(processes[i], processes[left]);
+      left ++;
+    }
+  }
+  return left - 1;
+}
+
+void qsortMEM(vector<ProcessInfo>& processes, int left, int right) {
+  if (left >= right) return;
+
+  int middle = left + (right - left) / 2;
+  swap(processes[middle], processes[left]);
+  int midpoint = partitionMEM(processes, left + 1, right, processes[left].rss);
+  swap(processes[left], processes[midpoint]);
+  qsortMEM(processes, left, midpoint);
+  qsortMEM(processes, midpoint + 1, right);
+}
+
+int partitionTIME(vector<ProcessInfo>& processes, int left, int right, long time) {
+  for (int i=left; i<right; ++i) {
+    if (processes[i].utime + processes[i].stime > time) {
+      swap(processes[i], processes[left]);
+      left ++;
+    }
+  }
+  return left - 1;
+}
+
+void qsortTIME(vector<ProcessInfo>& processes, int left, int right) {
+  if (left >= right) return;
+
+  int middle = left + (right - left) / 2;
+  swap(processes[middle], processes[left]);
+  int midpoint = partitionTIME(processes, left + 1, right,
+    (processes[left].utime + processes[left].stime));
+  swap(processes[left], processes[midpoint]);
+  qsortTIME(processes, left, midpoint);
+  qsortTIME(processes, midpoint + 1, right);
+}
+
+void sortByCPU(vector<ProcessInfo> &processes) {
+  qsortCPU(processes, 0, processes.size());
+  return;
+}
+
+void sortByMEM(vector<ProcessInfo> &processes) {
+  qsortMEM(processes, 0, processes.size());
+  return;
+}
+
+void sortByTIME(vector<ProcessInfo> &processes) {
+  qsortTIME(processes, 0, processes.size());
+  return;
 }
 
 /**
  * Entry point for the program.
  */
-int main() {
+int main(int argc, char **argv) {
+  int delay = 3000;
+  char* colToSortBy = "PID";
+  int showHelpFlag = 0;
+  int c;
+
+  while(true) {
+    static struct option long_options[] = {
+      {"delay", required_argument, 0, 'd'},
+      {"sort-key", required_argument, 0, 's'},
+      {"help", no_argument, &showHelpFlag, 1},
+      {0, 0, 0, 0}
+    };
+
+    int optIndex = 0;
+    c = getopt_long(argc, argv, "d:s:h", long_options, &optIndex);
+    if (c == -1) {
+      break;
+    }
+
+    switch(c) {
+      case 0:
+        break;
+      case 'd':
+        delay = atoi(optarg) * 100;
+        break;
+      case 's':
+        colToSortBy = optarg;
+        checkSortArg(colToSortBy);
+        break;
+      case 'h':
+        showHelpFlag = 1;
+        break;
+      default:
+        std::cout << "Invalid option, invoke mytop with -h or --help, because "
+          << "you clearly need it.\n";
+        abort();
+    }
+  }
+
+  if(showHelpFlag) {
+    std::cout << "mytop is a simple reproduction of the top command."
+      << "\nValid options are:\n\n"
+      << "-d --delay DELAY - takes an integer, sets the refresh delay in "
+      << "tenths of seconds.\n\n"
+      << "-s --sort-key KEY - takes PID, CPU, MEM, or TIME; sets the column to "
+      << "sort processes by.\n\n"
+      << "-h --help - considering you just used it, you should know what it "
+      << "does.\n\n";
+    exit(0);
+  }
+
   // ncurses initialization
   initscr();
 
@@ -55,9 +187,7 @@ int main() {
 
   // Set getch to return after 1000 milliseconds; this allows the program to
   // immediately respond to user input while not blocking indefinitely.
-  timeout(3000);
-
-  int tick = 1;
+  timeout(delay);
 
   int prevCPUTime = 0;
 
@@ -160,23 +290,36 @@ int main() {
     mvprintw(totalRowsBeforeTable, 45 - timeStr.length(), "TIME");
     // 45 to wherever
     mvprintw(totalRowsBeforeTable, 55 - cmdStr.length(), "COMMAND");
+
+    vector<ProcessInfo> processes = sysInfo.processes;
+
+    string sortColumn(colToSortBy);
+    if (sortColumn == "CPU") {
+      sortByCPU(processes);
+      //sortByCPU(oldProcesses);
+    } else if (sortColumn == "MEM") {
+      sortByMEM(processes);
+    } else if (sortColumn == "TIME") {
+      sortByTIME(processes);
+    }
+
     // PID, resident memory size, current state (single letter),
     // % of CPU currently being used,
     // total time spent being executed (HH:MM:SS),
     // cmdline that was executed
     int displayNum = 10;
-    if (sysInfo.processes.size() < 10) {
-      displayNum = sysInfo.processes.size();
+    if (processes.size() < 10) {
+      displayNum = processes.size();
     }
     for (int i = 0; i < displayNum; i++) {
       int currRow = totalRowsBeforeTable + 1 + i;
-      int pidLength = getLengthOfNum(sysInfo.processes.at(i).pid);
-      mvprintw(currRow, 5 - pidLength, "%d", sysInfo.processes.at(i).pid);
+      int pidLength = getLengthOfNum(processes.at(i).pid);
+      mvprintw(currRow, 5 - pidLength, "%d", processes.at(i).pid);
 
-      int rssLength = getLengthOfNum(sysInfo.processes.at(i).rss);
-      mvprintw(currRow, 15 - rssLength, "%d", sysInfo.processes.at(i).rss);
+      int rssLength = getLengthOfNum(processes.at(i).rss * 4);
+      mvprintw(currRow, 15 - rssLength, "%d", processes.at(i).rss * 4);
 
-      mvprintw(currRow, 24, "%c", sysInfo.processes.at(i).state);
+      mvprintw(currRow, 24, "%c", processes.at(i).state);
 
       int elapsedTime = 4;
       int elapsedProcessTime = 1;
@@ -185,18 +328,19 @@ int main() {
         mvprintw(38, 38, "Elapsed time: %d", cpus.at(0).total_time() -
           oldCPUTotalTime);
         mvprintw(39 + i, 38, "Process time: %d",
-          (sysInfo.processes.at(i).utime - oldProcesses.at(i).utime) +
-          (sysInfo.processes.at(i).stime - oldProcesses.at(i).stime));
+          (processes.at(i).utime - oldProcesses.at(i).utime) +
+          (processes.at(i).stime - oldProcesses.at(i).stime));
         elapsedProcessTime =
-          (sysInfo.processes.at(i).utime - oldProcesses.at(i).utime) +
-          (sysInfo.processes.at(i).stime - oldProcesses.at(i).stime);
-        sysInfo.processes.at(i).cpu_percent = (double)elapsedProcessTime *
-          1000 / elapsedTime;
+          (processes.at(i).utime - oldProcesses.at(i).utime) +
+          (processes.at(i).stime - oldProcesses.at(i).stime);
+        processes.at(i).cpu_percent = (double)elapsedProcessTime *
+          1000.0 / elapsedTime;
       }
-      mvprintw(currRow, 30, "%1.1f%%", sysInfo.processes.at(i).cpu_percent);
+      mvprintw(currRow, 30, "%1.1f%%", processes.at(i).cpu_percent);
+      mvprintw(50, 38, "test %d %s", delay, colToSortBy);
 
-      seconds = (sysInfo.processes.at(i).utime +
-        sysInfo.processes.at(i).stime) /
+      seconds = (processes.at(i).utime +
+        processes.at(i).stime) /
         sysconf(_SC_CLK_TCK);
       hours = seconds / 3600;
       remainingSeconds = seconds % 3600;
@@ -205,14 +349,11 @@ int main() {
       mvprintw(currRow, 38, "%02d:%02d:%02d", hours, minutes, remainingSeconds);
 
       mvprintw(currRow, 55 - cmdStr.length(),
-          sysInfo.processes.at(i).command_line.c_str());
+          processes.at(i).comm);
     }
 
-    // Display the counter using printw (an ncurses function)
-    printw("\n\nBehold, the number:\n%d", tick++);
-
     oldCPUTotalTime = cpus.at(0).total_time();
-    oldProcesses = sysInfo.processes;
+    oldProcesses = processes;
     // Redraw the screen.
     refresh();
 
