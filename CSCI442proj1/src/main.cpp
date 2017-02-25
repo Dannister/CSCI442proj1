@@ -279,7 +279,7 @@ int main(int argc, char **argv) {
     // table with labeled columns:
     mvprintw(initialRows + rowsCpuOccupies + 7, 0, "BEHOLD! THE table\n");
     string pidStr = "PID";
-    string rssStr = "RSS";
+    string rssStr = "RSS(kb)";
     string stateStr = "STATE";
     string percCPU = "%%CPU";
     string timeStr = "TIME";
@@ -287,7 +287,7 @@ int main(int argc, char **argv) {
     // PID column starts at col 0 and goes to col 4
     mvprintw(totalRowsBeforeTable, 5 - pidStr.length(),"PID");
     // col 5 to 14
-    mvprintw(totalRowsBeforeTable, 15 - rssStr.length(), "RSS");
+    mvprintw(totalRowsBeforeTable, 15 - rssStr.length(), "RSS(kb)");
     // 15 to 24
     mvprintw(totalRowsBeforeTable, 25 - stateStr.length(), "STATE");
     // 25 to 34
