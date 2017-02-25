@@ -44,7 +44,7 @@ List of important files:
             Linux user such as yourself! After that, a table of processes is
             shown! Based on the command line arguments described below, the
             table can be sorted by PID, resident memory (RSS), percentage of CPU
-            utilization (in an ideal world...), and the execution time of
+            utilization, and the execution time of
             the process! But wait, there's more! Included with the information
             that the table can be sorted by, there is information about the
             process's state and the command used to start the process!

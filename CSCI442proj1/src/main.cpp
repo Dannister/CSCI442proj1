@@ -196,7 +196,6 @@ int main(int argc, char **argv) {
 
   std::vector<CpuInfo> oldCPUs;
   int oldCPUTotalTime = 0;
-  std::vector<ProcessInfo> oldProcesses;
   map<int, ProcessInfo> procMap;
 
   while (true) {
@@ -241,11 +240,14 @@ int main(int argc, char **argv) {
       } else {
         mvprintw(currRow, 0, "CPU%d:", i-1);
       }
-      float percUserTime = (float)cpus.at(i).user_time * 100 / cpus.at(i).total_time();
+      float percUserTime = (float)cpus.at(i).user_time * 100 /
+        cpus.at(i).total_time();
       mvprintw(currRow, 20 - 9, "%3.2f%% user", percUserTime);
-      float percSysTime = (float)cpus.at(i).system_time * 100 / cpus.at(i).total_time();
+      float percSysTime = (float)cpus.at(i).system_time * 100 /
+        cpus.at(i).total_time();
       mvprintw(currRow, 40 - 11, "%3.2f%% system", percSysTime);
-      float percIdleTime = (float)cpus.at(i).idle_time * 100 / cpus.at(i).total_time();
+      float percIdleTime = (float)cpus.at(i).idle_time * 100 /
+        cpus.at(i).total_time();
       mvprintw(currRow, 60 - 11, "%3.2f%% idle", percIdleTime);
     }
 
@@ -297,36 +299,16 @@ int main(int argc, char **argv) {
 
     vector<ProcessInfo> processes = sysInfo.processes;
 
-    string sortColumn(colToSortBy);
-    if (sortColumn == "CPU") {
-      sortByCPU(processes);
-      sortByCPU(oldProcesses);
-    } else if (sortColumn == "MEM") {
-      sortByMEM(processes);
-      sortByMEM(oldProcesses);
-    } else if (sortColumn == "TIME") {
-      sortByTIME(processes);
-      sortByTIME(oldProcesses);
-    }
-
     // PID, resident memory size, current state (single letter),
     // % of CPU currently being used,
     // total time spent being executed (HH:MM:SS),
     // cmdline that was executed
     int displayNum = 10;
-    if (processes.size() < 10) {
+    if (processes.size() < displayNum) {
       displayNum = processes.size();
     }
-    for (int i = 0; i < displayNum; i++) {
-      int currRow = totalRowsBeforeTable + 1 + i;
-      int pidLength = getLengthOfNum(processes.at(i).pid);
-      mvprintw(currRow, 5 - pidLength, "%d", processes.at(i).pid);
 
-      int rssLength = getLengthOfNum(processes.at(i).rss * 4);
-      mvprintw(currRow, 15 - rssLength, "%d", processes.at(i).rss * 4);
-
-      mvprintw(currRow, 24, "%c", processes.at(i).state);
-
+    for (int i = 0; i < processes.size(); i++) {
       int elapsedTime = 4;
       int elapsedProcessTime = 1;
       if (oldCPUs.size() != 0) {
@@ -338,8 +320,23 @@ int main(int argc, char **argv) {
           (processes.at(i).stime - prevProcInfo.stime);
         processes.at(i).cpu_percent = (double)elapsedProcessTime *
           100.0 / elapsedTime;
-      }
-      mvprintw(currRow, 30, "%1.1f%%", processes.at(i).cpu_percent);
+        }
+    }
+
+    string sortColumn(colToSortBy);
+    if (sortColumn == "CPU") {
+      sortByCPU(processes);
+    } else if (sortColumn == "MEM") {
+      sortByMEM(processes);
+    } else if (sortColumn == "TIME") {
+      sortByTIME(processes);
+    }
+
+    for (int i = 0; i < processes.size(); i++) {
+      int currRow = totalRowsBeforeTable + 1 + i;
+      int pidLength = getLengthOfNum(processes.at(i).pid);
+
+      int rssLength = getLengthOfNum(processes.at(i).rss * 4);
 
       seconds = (processes.at(i).utime +
         processes.at(i).stime) /
@@ -348,12 +345,17 @@ int main(int argc, char **argv) {
       remainingSeconds = seconds % 3600;
       minutes = remainingSeconds / 60;
       remainingSeconds = remainingSeconds % 60;
-      mvprintw(currRow, 38, "%02d:%02d:%02d", hours, minutes, remainingSeconds);
-
-      mvprintw(currRow, 55 - cmdStr.length(),
-          processes.at(i).comm);
+      if (i < displayNum) {
+        mvprintw(currRow, 5 - pidLength, "%d", processes.at(i).pid);
+        mvprintw(currRow, 15 - rssLength, "%d", processes.at(i).rss * 4);
+        mvprintw(currRow, 24, "%c", processes.at(i).state);
+        mvprintw(currRow, 31, "%1.1f%%", processes.at(i).cpu_percent);
+        mvprintw(currRow, 38, "%02d:%02d:%02d", hours, minutes, remainingSeconds);
+        mvprintw(currRow, 55 - cmdStr.length(),
+            processes.at(i).comm);
+        }
     }
-
+    procMap.clear();
     for (int i = 0; i < processes.size(); i++) {
       ProcessInfo tmpProc;
       tmpProc.utime = processes.at(i).utime;
@@ -362,7 +364,6 @@ int main(int argc, char **argv) {
     }
 
     oldCPUs = cpus;
-    oldProcesses = processes;
     // Redraw the screen.
     refresh();
 
